@@ -69,7 +69,10 @@ module.exports = function createFsProxy(path, semiOptions) {
     persistent: false,
     encoding: options.encoding
   }
-  const watcher = chokidar.watch(path, watchOptions)
+  const watcher = chokidar.watch(path, {
+    watchOptions,
+    ...options.watchOptions
+  })
   watcher.on('error', err => eventer.emit('error', err))
   watcher.on('change', read)
 
