@@ -1,4 +1,5 @@
 const fs = require('fs')
+const chokidar = require('chokidar')
 const EventEmitter = require('events')
 const deepAssign = require('deep-assign')
 
@@ -68,7 +69,7 @@ module.exports = function createFsProxy(path, semiOptions) {
     persistent: false,
     encoding: options.encoding
   }
-  const watcher = fs.watch(path, watchOptions)
+  const watcher = chokidar.watch(path, watchOptions)
   watcher.on('error', err => eventer.emit('error', err))
   watcher.on('change', read)
 

@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/mees-/fs-proxy#readme",
   "dependencies": {
+    "chokidar": "^3.0.1",
     "deep-assign": "^2.0.0"
   }
 }
